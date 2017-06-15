@@ -2,7 +2,6 @@
 
 const expect = require('expect');
 const fp = require('../lib/fp.js');
-const main = require('../index.js');
 
 describe('testing map', () => {
   it('should return [2,4,6,8]', () => {
@@ -57,27 +56,5 @@ describe('testing splice', () => {
   it('should return \'invalid input\' for non-object values', () => {
     let result = fp.concat('1,2,3,4,5,6,7,8', 5);
     expect(result).toBe('invalid input');
-  });
-});
-
-describe('testing main', () => {
-
-  var oldArgv = process.argv;
-  before(() => {
-    process.argv = [
-      'node path',
-      'file path',
-      'hello',
-      'world',
-    ];
-  });
-
-  after(() => {
-    process.argv = oldArgv;
-  });
-
-  it('should return \'HELLO WORLD\'', () => {
-    let result = main();
-    expect(result).toBe('HELLO WORLD');
   });
 });
