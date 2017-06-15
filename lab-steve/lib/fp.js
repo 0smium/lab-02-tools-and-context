@@ -1,18 +1,43 @@
 'use strict';
 
+let fp = module.exports = {};
+
 //MAP
 
-var mapCall = function(list, callback){
-  return Array.prototype.map.call(list, callback);
+fp.map = (list, ...args) => {
+  if (typeof list === 'object')
+    return Array.prototype.map.call(list, ...args);
+  return 'invalid input';
 };
-var mapApply = function(list, callback){
-  return Array.prototype.map.apply(list, [callback]);
-};
-
-var nums = [1,2,3,4];
-
-mapCall(nums, n => n * 2);
-mapApply(nums, n => n * 2);
-
 
 //FILTER
+
+fp.filter = (list, ...args) => {
+  if (typeof list === 'object')
+    return Array.prototype.filter.call(list, ...args);
+  return 'invalid input';
+};
+
+//REDUCE
+
+fp.reduce = (list, ...args) => {
+  if (typeof list === 'object')
+    return Array.prototype.reduce.apply(list, args);
+  return 'invalid input';
+};
+
+//CONCAT
+
+fp.concat = (list, ...args) => {
+  if (typeof list === 'object')
+    return Array.prototype.concat.apply(list, args);
+  return 'invalid input';
+};
+
+//SPLICE
+
+fp.splice = (list, ...args) => {
+  if (typeof list === 'object')
+    return Array.prototype.splice.call(list, ...args);
+  return 'invalid input';
+};
